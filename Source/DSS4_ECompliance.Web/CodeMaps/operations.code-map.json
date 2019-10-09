@@ -1,0 +1,12 @@
+{
+  "Entries": {
+    "OP|FileData|GetAbsolutePath": {
+      "GeneratedSymbol": "DSS4_ECompliance.BO.FileDataExtensions.GetAbsolutePath",
+      "Lines": {}
+    },
+    "OP|FileData|GetThumbnail": {
+      "GeneratedSymbol": "DSS4_ECompliance.BO.FileDataExtensions.GetThumbnail",
+      "Lines": {}
+    }
+  }
+}

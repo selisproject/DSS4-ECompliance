@@ -1,0 +1,134 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <Copyright>Copyright © CLMS 2018</Copyright>
+    <Company>CLMS</Company>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <AssemblyName>DSS4_ECompliance.Backend</AssemblyName>
+    <RootNamespace>DSS4_ECompliance</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp2.2'">
+    <DefineConstants>$(DefineConstants);NETSTANDARD</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Services" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.applicationservices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\EventHandlers.cs" />
+    <Compile Include="BLL\FileDataExtensions.cs" />
+    <Compile Include="DAL\IRepository.cs" />
+    <Compile Include="DAL\NHSessionExtensions.cs" />
+    <Compile Include="DAL\OnDeleteListener.cs" />
+    <Compile Include="DAL\OnSaveOrUpdateListener.cs" />
+    <Compile Include="DAL\Repository.cs" />
+    <Compile Include="Hubs\EventsHub.cs" />
+    <Compile Include="Locales\LocaleResolver.cs" />
+    <Compile Include="POCO\FileData.cs" />
+    <Compile Include="POCO\StorageMedium.cs" />
+    <Compile Include="POCO\tblCustomsFinder.cs" />
+    <Compile Include="POCO\tblCustomsOveralMonitoring.cs" />
+    <Compile Include="POCO\tblCustomsWayPoint.cs" />
+    <Compile Include="POCO\tblCustomsWayPointRisk.cs" />
+    <Compile Include="POCO\tblCustomsWayPointVisibility.cs" />
+    <Compile Include="Security\Encryption\SecurityManager.cs" />
+    <Compile Include="Security\Owin\BasicAuthenticationExtensions.cs" />
+    <Compile Include="Security\Owin\BasicAuthenticationHandler.cs" />
+    <Compile Include="Security\Owin\BasicAuthenticationMiddleware.cs" />
+    <Compile Include="Security\Owin\BasicAuthenticationOptions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DAL/MappingFiles\FileData.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblCustomsFinder.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblCustomsOveralMonitoring.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblCustomsWayPoint.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblCustomsWayPointRisk.hbm.xml" />
+    <EmbeddedResource Include="DAL/MappingFiles\tblCustomsWayPointVisibility.hbm.xml" />
+    <EmbeddedResource Include="Locales/Locales\en-usLocales.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CLMS.AppDev.Cache">
+      <Private>True</Private>
+      <HintPath>..\..\..\Projects\Lib\CLMS.AppDev.Cache.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\..\..\Projects\Lib\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <Private>True</Private>
+      <HintPath>..\..\..\Projects\Lib\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <Private>True</Private>
+      <HintPath>..\..\..\Projects\Lib\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="zAppDev.DotNet.Framework">
+      <Private>True</Private>
+      <HintPath>..\..\..\Projects\Lib\zAppDev.DotNet.Framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CacheManager.Core" Version="1.0.1" />
+    <PackageReference Include="CSharpVerbalExpressions" Version="0.1.0" />
+    <PackageReference Include="CsvHelper" Version="2.13.1" />
+    <PackageReference Include="DotNetZip" Version="1.12.0" />
+    <PackageReference Include="FluentNHibernate" Version="2.1.2" />
+    <PackageReference Include="GTFS" Version="1.7.1" />
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNet.Identity.Owin" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.Core" Version="2.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Owin" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Cookies" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Facebook" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Google" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.Jwt" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Owin.Security.OAuth" Version="4.0.0" />
+    <PackageReference Include="ncrontab" Version="3.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="NHibernate" Version="5.2.1" />
+    <PackageReference Include="Owin" Version="1.0.0" />
+    <PackageReference Include="System.DirectoryServices" Version="4.5.0" />
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="4.5.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="System.Runtime.Caching" Version="4.5.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.5.3" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.1" />
+  </ItemGroup>
+  <ItemGroup />
+</Project>
